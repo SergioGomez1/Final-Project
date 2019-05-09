@@ -149,6 +149,29 @@ def normalize(vector):
   else:
     return scalarVectorMultiply(vector, 1/norm)
 
+def backsub(matrixR,vector_b):
+  """ use back substitution to get back the vector x that solves Ax = b. 
+
+  We use the information from the following rows of the current vector that we are in to solve the element X[iterator] corresponding to the current vector. 
+
+  Args: 
+    matrixR : a upper triangular matrix with column vectors. 
+    Vector_b : a vector with numbers as elements
+
+  Returns:
+    result: a vector x that solves Ax=b with numbers as elements. 
+
+    """
+
+
+  result = vector_b
+  for iterator in range(len(matrixR[0])):
+    alpha = (len(matrixR[0]-1))
+    result[alpha-iterator] = vector_b[alpha-iterator]- summation(matrixR[alpha-iterator][iterator],result[iterator])*(1/matrixR[alpha-iterator][alpha-iterator]
+
+  return result
+
+  
 def modifiedGS(matrixA):
   """ Compute matrixQ witch is a unitary matrix and matrixR witch is a upper triangular matrix.
 
